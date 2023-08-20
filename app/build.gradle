@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'org.mokee.warpshare'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "org.mokee.warpshare"
+        minSdk 24
+        //noinspection EditedTargetSdkVersion
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    signingConfigs {
+        release {
+//            storeFile file('../../github.jks')
+//            storePassword System.console() != null ? System.console().readLine("\nKeystore password: ") : ""
+//            keyAlias 'materialprogressbar'
+//            keyPassword System.console() != null ? System.console().readLine("\nKey password: ") : ""
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation(platform('org.jetbrains.kotlin:kotlin-bom:1.9.0'))
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation "androidx.legacy:legacy-preference-v14:1.0.0"
+    implementation "androidx.preference:preference-ktx:1.2.1"
+    implementation 'com.koushikdutta.async:androidasync:3.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\microsoft', include: ['*.aar', '*.jar'], exclude: [])
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.0" // Use the appropriate Kotlin version
+    implementation 'com.squareup.okio:okio:1.15.0' // Use the appropriate okio version
+
+    implementation group: 'commons-io', name: 'commons-io', version: '20030203.000550'
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\jar_files', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\dd', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\mokee', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\okhttp', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\dd\\dd2', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\gson', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\jdns', include: ['*.aar', '*.jar'], exclude: [])
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+}

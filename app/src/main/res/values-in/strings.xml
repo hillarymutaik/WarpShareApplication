@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2019 The MoKee Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">WarpShare</string>
+    <string name="menu_settings">Pengaturan...</string>
+    <string name="introduction">WarpShare dapat dengan cepat mengirim file ke orang lain di sekitar, tanpa menggunakan data seluler.</string>
+    <string name="hint_perm">Untuk menggunakan WarpShare, diperlukan beberapa izin.</string>
+    <string name="hint_wifi">Untuk menggunakan Warp Share, aktifkan Wi-Fi dan sambungkan ke jaringan yang sama.</string>
+    <string name="button_wifi">Buka setelan Wi-Fi…</string>
+    <string name="hint_bt">Untuk menggunakan WarpShare, harap aktifkan Bluetooth</string>
+    <string name="button_bt">Hidupkan Bluetooth…</string>
+    <plurals name="send_files_to">
+        <item quantity="other">Kirim %d file ke...</item>
+    </plurals>
+    <string name="send_cancel">Batal</string>
+    <string name="send_confirm">Kirim</string>
+    <string name="status_waiting_for_confirm">Menunggu konfirmasi…</string>
+    <string name="status_sending">Mengirim…</string>
+    <string name="status_sending_progress">Mengirim %1$s / %2$s</string>
+    <string name="notif_recv_transfer_request_accept">Terima</string>
+    <string name="notif_recv_transfer_progress_cancel">Batal</string>
+    <string name="notif_recv_transfer_done_share">Bagikan</string>
+    <string name="settings">Setelan</string>
+</resources>

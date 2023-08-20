@@ -7,8 +7,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-//        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath 'com.android.tools.build:gradle:7.3.1' // downloads 1.7.1 Metadata
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.android.tools.build:gradle:7.4.2' // downloads 1.7.1 Metadata
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }

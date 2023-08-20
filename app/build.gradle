@@ -36,6 +36,7 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            multiDexEnabled false
         }
     }
 
@@ -57,7 +58,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 
-    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation(platform('org.jetbrains.kotlin:kotlin-bom:1.9.0'))
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
@@ -68,8 +69,8 @@ dependencies {
     implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\microsoft', include: ['*.aar', '*.jar'], exclude: [])
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.0" // Use the appropriate Kotlin version
-    implementation 'com.squareup.okio:okio:1.15.0' // Use the appropriate okio version
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0" // Use the appropriate Kotlin version
+    implementation 'com.squareup.okio:okio:3.5.0' // Use the appropriate okio version
 
     implementation group: 'commons-io', name: 'commons-io', version: '20030203.000550'
     implementation fileTree(dir: 'C:\\Users\\Mutai\\Downloads\\jar_files', include: ['*.aar', '*.jar'], exclude: [])

@@ -14,11 +14,11 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -64,7 +64,7 @@ android {
         exclude("META-INF/NOTICE.txt")
         exclude("META-INF/notice.txt")
         exclude("META-INF/ASL2.0")
-        exclude("META-INF/*.kotlin_module")
+//        exclude("META-INF/*.kotlin_module")
 //        exclude 'kotlin/internal/internal.kotlin_builtins'
     }
 
@@ -74,7 +74,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.9.0'
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 
     implementation 'com.google.android.material:material:1.9.0'

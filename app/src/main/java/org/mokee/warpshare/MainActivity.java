@@ -20,6 +20,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_OK;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -165,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -206,6 +208,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onPeerFound(Peer peer) {
         Log.d(TAG, "Found: " + peer.id + " (" + peer.name + ")");
@@ -214,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         mAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onPeerDisappeared(Peer peer) {
         Log.d(TAG, "Disappeared: " + peer.id + " (" + peer.name + ")");
@@ -255,6 +259,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         handleSendFailed(peer);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendConfirming(Peer peer, PeerState state) {
         state.status = R.string.status_waiting_for_confirm;
         state.bytesTotal = -1;
@@ -264,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         mWakeLock.acquire();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendRejected(Peer peer, PeerState state) {
         state.status = R.string.status_rejected;
         mAdapter.notifyDataSetChanged();
@@ -271,11 +277,13 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         mWakeLock.release();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSending(Peer peer, PeerState state) {
         state.status = R.string.status_sending;
         mAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendSucceed(Peer peer, PeerState state) {
         state.status = 0;
         mAdapter.notifyDataSetChanged();
@@ -283,6 +291,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
         mWakeLock.release();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendFailed(Peer peer) {
         final PeerState state = mPeerStates.get(peer.id);
         if (state != null) {
@@ -352,6 +361,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
                 handleSendRejected(peer, state);
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onProgress(long bytesSent, long bytesTotal) {
                 state.bytesSent = bytesSent;
@@ -394,6 +404,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
             return new ViewHolder(mInflater.inflate(R.layout.item_peer_main, parent, false));
         }
 
+        @SuppressLint("NewApi")
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             final String id = mPeers.keyAt(position);
@@ -482,7 +493,7 @@ public class MainActivity extends AppCompatActivity implements DiscoverListener 
 
     }
 
-    private class PeerState {
+    private static class PeerState {
 
         @StringRes
         int status = 0;

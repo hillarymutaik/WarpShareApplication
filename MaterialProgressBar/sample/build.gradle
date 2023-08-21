@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
+
+    defaultConfig {
+        applicationId "me.zhanghai.android.materialprogressbar.sample"
+//        minSdkVersion 21
+//        targetSdkVersion 33
+        minSdkVersion Integer.parseInt(project.ANDROID_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    signingConfigs {
+        release {
+//            storeFile file('../../github.jks')
+//            storePassword System.console() != null ? System.console().readLine("\nKeystore password: ") : ""
+//            keyAlias 'materialprogressbar'
+//            keyPassword System.console() != null ? System.console().readLine("\nKey password: ") : ""
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+    namespace 'me.zhanghai.android.materialprogressbar.sample'
+    lint {
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation 'androidx.core:core-ktx:1.10.1'
+    // Add more AndroidX libraries as needed
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+    implementation project(':library')
+}

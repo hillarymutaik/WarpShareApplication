@@ -20,6 +20,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_OK;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
@@ -59,7 +60,7 @@ import java.util.List;
 public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         implements DiscoverListener {
 
-    private static final String TAG = "ShareBottomSheetFragment";
+    private static final String TAG = "ShareBottomSheetFragmen";
 
     private static final int REQUEST_SETUP = 1;
 
@@ -235,6 +236,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onPeerFound(Peer peer) {
         Log.d(TAG, "Found: " + peer.id + " (" + peer.name + ")");
@@ -242,6 +244,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         mAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onPeerDisappeared(Peer peer) {
         Log.d(TAG, "Disappeared: " + peer.id + " (" + peer.name + ")");
@@ -268,6 +271,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleItemClick(Peer peer) {
         if (mPeerStatus != 0 && mPeerStatus != R.string.status_rejected) {
             return;
@@ -278,11 +282,13 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
             mSendButton.setEnabled(false);
         } else {
             mPeerPicked = peer.id;
+
             mSendButton.setEnabled(true);
         }
         mAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendConfirming() {
         mPeerStatus = R.string.status_waiting_for_confirm;
         mBytesTotal = -1;
@@ -294,6 +300,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         mWakeLock.acquire();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendRejected() {
         mSending = null;
         mPeerStatus = R.string.status_rejected;
@@ -305,6 +312,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         Toast.makeText(getContext(), R.string.toast_rejected, Toast.LENGTH_SHORT).show();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSending() {
         mPeerStatus = R.string.status_sending;
         mAdapter.notifyDataSetChanged();
@@ -319,6 +327,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
         dismiss();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void handleSendFailed() {
         mSending = null;
         mPeerPicked = null;
@@ -344,6 +353,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
                 handleSendRejected();
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onProgress(long bytesSent, long bytesTotal) {
                 mBytesSent = bytesSent;
@@ -411,7 +421,7 @@ public class ShareBottomSheetFragment extends BottomSheetDialogFragment
                 } else {
                     holder.progressBar.setIndeterminate(false);
                     holder.progressBar.setMax((int) mBytesTotal);
-                    holder.progressBar.setProgress((int) mBytesSent, true);
+//                    holder.progressBar.setProgress((int) mBytesSent, true);
                 }
             } else {
                 holder.progressBar.setVisibility(View.GONE);

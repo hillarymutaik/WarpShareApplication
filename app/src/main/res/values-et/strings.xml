@@ -16,22 +16,22 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">WarpShare</string>
-    <string name="menu_settings">Seaded...</string>
+    <string name="menu_settings">Seaded…</string>
     <string name="introduction">WarpShare saab kiiresti saata faile teistele lähedal, ilma mobiilset andmesidet kasutamatta.</string>
     <string name="hint_perm">WarpShare\'i kasutamiseks on vaja mitut luba.</string>
-    <string name="button_perm">Anna õigused...</string>
+    <string name="button_perm">Anna õigused…</string>
     <string name="hint_wifi">WarpShare\'i kasutamiseks lülitage sisse Wi-Fi ja looge ühendus sama võrguga.</string>
-    <string name="button_wifi">Wi-Fi-seadete avamine...</string>
+    <string name="button_wifi">Wi-Fi-seadete avamine…</string>
     <string name="hint_bt">WarpShare\'i kasutamiseks lülitage Bluetooth sisse.</string>
-    <string name="button_bt">Lülitan Bluetoothi sisse...</string>
+    <string name="button_bt">Lülitan Bluetoothi sisse…</string>
     <plurals name="send_files_to">
         <item quantity="one">Saada %d fail…</item>
         <item quantity="other">Saada %d faili…</item>
     </plurals>
     <string name="send_cancel">Tühista</string>
     <string name="send_confirm">Saada</string>
-    <string name="status_waiting_for_confirm">Ootab kinnitust...</string>
-    <string name="status_sending">Saatmine...</string>
+    <string name="status_waiting_for_confirm">Ootab kinnitust…</string>
+    <string name="status_sending">Saatmine…</string>
     <string name="status_sending_progress">Saatmine… %1$s / %2$s</string>
     <string name="status_rejected">Tagasi lükatud</string>
     <string name="toast_no_file">Ühtegi faili ei saa saata</string>

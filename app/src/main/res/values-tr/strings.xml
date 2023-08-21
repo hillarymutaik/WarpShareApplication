@@ -32,7 +32,7 @@
     <string name="send_confirm">Gönder</string>
     <string name="status_waiting_for_confirm">E-posta için bekliyor…</string>
     <string name="status_sending">Gönderiliyor…</string>
-    <string name="status_sending_progress">Gönderiliyor... %1$s / %2$s</string>
+    <string name="status_sending_progress">Gönderiliyor… %1$s / %2$s</string>
     <string name="status_rejected">Reddedildi</string>
     <string name="toast_no_file">Hiçbir dosya gönderilemez</string>
     <string name="toast_completed">Dosya gönderildi</string>

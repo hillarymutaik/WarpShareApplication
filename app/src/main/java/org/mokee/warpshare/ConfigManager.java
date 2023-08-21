@@ -16,6 +16,7 @@
 
 package org.mokee.warpshare;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -30,8 +31,6 @@ public class ConfigManager {
 
     public static final String KEY_DISCOVERABLE = "discoverable";
 
-    private static final String TAG = "ConfigManager";
-
     private final Context mContext;
     private final SharedPreferences mPref;
 
@@ -40,6 +39,7 @@ public class ConfigManager {
         mPref = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
+    @SuppressLint("MissingPermission")
     private String getBluetoothAdapterName() {
         final BluetoothManager manager = (BluetoothManager) mContext.getSystemService(Context.BLUETOOTH_SERVICE);
         if (manager == null) {

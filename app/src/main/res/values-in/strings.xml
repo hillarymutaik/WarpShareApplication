@@ -16,7 +16,7 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">WarpShare</string>
-    <string name="menu_settings">Pengaturan...</string>
+    <string name="menu_settings">Pengaturan…</string>
     <string name="introduction">WarpShare dapat dengan cepat mengirim file ke orang lain di sekitar, tanpa menggunakan data seluler.</string>
     <string name="hint_perm">Untuk menggunakan WarpShare, diperlukan beberapa izin.</string>
     <string name="hint_wifi">Untuk menggunakan Warp Share, aktifkan Wi-Fi dan sambungkan ke jaringan yang sama.</string>
@@ -24,7 +24,7 @@
     <string name="hint_bt">Untuk menggunakan WarpShare, harap aktifkan Bluetooth</string>
     <string name="button_bt">Hidupkan Bluetooth…</string>
     <plurals name="send_files_to">
-        <item quantity="other">Kirim %d file ke...</item>
+        <item quantity="other">Kirim %d file ke…</item>
     </plurals>
     <string name="send_cancel">Batal</string>
     <string name="send_confirm">Kirim</string>

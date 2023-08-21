@@ -21,7 +21,7 @@
     <string name="hint_perm">Na použitie WarpShare sa vyžaduje niekoľko oprávnení.</string>
     <string name="button_perm">Udeliť oprávnenia…</string>
     <string name="hint_wifi">Na použitie WarpShare je nutné zapnúť Wi-Fi a pripojiť sa k rovnakej sieti.</string>
-    <string name="button_wifi">Otvoriť nastavenie Wi-Fi ...</string>
+    <string name="button_wifi">Otvoriť nastavenie Wi-Fi …</string>
     <string name="hint_bt">Na použitie WarpShare je nutné zapnúť Bluetooth.</string>
     <string name="button_bt">Zapínanie Bluetooth…</string>
     <plurals name="send_files_to">
@@ -32,8 +32,8 @@
     </plurals>
     <string name="send_cancel">Zrušiť</string>
     <string name="send_confirm">Odoslať</string>
-    <string name="status_waiting_for_confirm">Čakanie na potvrdenie...</string>
-    <string name="status_sending">Odosielam...</string>
+    <string name="status_waiting_for_confirm">Čakanie na potvrdenie…</string>
+    <string name="status_sending">Odosielam…</string>
     <string name="status_sending_progress">Odosielam… %1$s / %2$s</string>
     <string name="status_rejected">Odmietnuté</string>
     <string name="toast_no_file">Nemožno odoslať žiadny súbor</string>

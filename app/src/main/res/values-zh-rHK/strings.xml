@@ -30,7 +30,7 @@
     <string name="send_cancel">取消</string>
     <string name="send_confirm">傳送</string>
     <string name="status_waiting_for_confirm">等待確認…</string>
-    <string name="status_sending">傳送中...</string>
+    <string name="status_sending">傳送中…</string>
     <string name="status_sending_progress">傳送…%1$s / %2$s</string>
     <string name="status_rejected">被拒絕</string>
     <string name="toast_no_file">不能傳送任何檔案</string>

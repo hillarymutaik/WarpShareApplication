@@ -16,6 +16,18 @@
 
 package org.mokee.warpshare;
 
+import static android.app.Notification.CATEGORY_SERVICE;
+import static android.app.Notification.CATEGORY_STATUS;
+import static android.app.NotificationManager.IMPORTANCE_HIGH;
+import static android.app.NotificationManager.IMPORTANCE_MIN;
+import static android.bluetooth.le.BluetoothLeScanner.EXTRA_CALLBACK_TYPE;
+import static android.bluetooth.le.BluetoothLeScanner.EXTRA_LIST_SCAN_RESULT;
+import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_FIRST_MATCH;
+import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_MATCH_LOST;
+import static androidx.core.content.FileProvider.getUriForFile;
+import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_OK;
+
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -51,17 +63,6 @@ import java.util.Set;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
-
-import static android.app.Notification.CATEGORY_SERVICE;
-import static android.app.Notification.CATEGORY_STATUS;
-import static android.app.NotificationManager.IMPORTANCE_HIGH;
-import static android.app.NotificationManager.IMPORTANCE_MIN;
-import static android.bluetooth.le.BluetoothLeScanner.EXTRA_CALLBACK_TYPE;
-import static android.bluetooth.le.BluetoothLeScanner.EXTRA_LIST_SCAN_RESULT;
-import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_FIRST_MATCH;
-import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_MATCH_LOST;
-import static androidx.core.content.FileProvider.getUriForFile;
-import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_OK;
 
 public class ReceiverService extends Service implements AirDropManager.ReceiverListener {
 
@@ -104,6 +105,7 @@ public class ReceiverService extends Service implements AirDropManager.ReceiverL
         }
     };
 
+    @SuppressLint("NewApi")
     static PendingIntent getTriggerIntent(Context context) {
         return PendingIntent.getForegroundService(context, 0,
                 new Intent(ACTION_SCAN_RESULT, null, context, ReceiverService.class),
@@ -133,6 +135,7 @@ public class ReceiverService extends Service implements AirDropManager.ReceiverL
         return null;
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void onCreate() {
         super.onCreate();
@@ -200,8 +203,8 @@ public class ReceiverService extends Service implements AirDropManager.ReceiverL
         Log.d(TAG, "onStartCommand: " + intent);
         final String action = intent == null ? null : intent.getAction();
         if (ACTION_SCAN_RESULT.equals(action)) {
-            final int callbackType = intent.getIntExtra(EXTRA_CALLBACK_TYPE, 0);
-            final List<ScanResult> results = intent.getParcelableArrayListExtra(EXTRA_LIST_SCAN_RESULT);
+            @SuppressLint("InlinedApi") final int callbackType = intent.getIntExtra(EXTRA_CALLBACK_TYPE, 0);
+            @SuppressLint("InlinedApi") final List<ScanResult> results = intent.getParcelableArrayListExtra(EXTRA_LIST_SCAN_RESULT);
             handleScanResult(callbackType, results);
         } else if (ACTION_TRANSFER_ACCEPT.equals(action)) {
             final Uri data = intent.getData();
@@ -447,6 +450,7 @@ public class ReceiverService extends Service implements AirDropManager.ReceiverL
         mWakeLock.release();
     }
 
+    @SuppressLint("NewApi")
     private PendingIntent getTransferIntent(String action, String ip) {
         return PendingIntent.getForegroundService(this, 0,
                 new Intent(action, null, this, getClass())
@@ -454,6 +458,7 @@ public class ReceiverService extends Service implements AirDropManager.ReceiverL
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
+    @SuppressLint("NewApi")
     private Notification.Builder getNotificationBuilder(String channelId, String category) {
         return new Notification.Builder(this, channelId)
                 .setCategory(category)

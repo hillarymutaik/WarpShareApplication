@@ -11,7 +11,9 @@
     android:foreground="@drawable/item_foreground_rounded"
     android:gravity="center_vertical"
     android:minHeight="64dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    tools:ignore="UnusedAttribute">
 
     <FrameLayout
         android:layout_width="56dp"
@@ -26,7 +28,9 @@
             android:layout_margin="8dp"
             android:scaleType="center"
             tools:src="@drawable/ic_apple_24dp"
-            app:tint="?android:textColorSecondary" />
+            app:tint="?android:textColorSecondary"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
 
 
     </FrameLayout>

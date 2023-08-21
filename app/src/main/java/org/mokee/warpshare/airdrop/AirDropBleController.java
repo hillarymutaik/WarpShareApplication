@@ -16,6 +16,14 @@
 
 package org.mokee.warpshare.airdrop;
 
+import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_FIRST_MATCH;
+import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_MATCH_LOST;
+import static android.bluetooth.le.ScanSettings.MATCH_MODE_STICKY;
+import static android.bluetooth.le.ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT;
+import static android.bluetooth.le.ScanSettings.SCAN_MODE_LOW_LATENCY;
+import static android.content.Context.BLUETOOTH_SERVICE;
+
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
@@ -31,13 +39,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_FIRST_MATCH;
-import static android.bluetooth.le.ScanSettings.CALLBACK_TYPE_MATCH_LOST;
-import static android.bluetooth.le.ScanSettings.MATCH_MODE_STICKY;
-import static android.bluetooth.le.ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT;
-import static android.bluetooth.le.ScanSettings.SCAN_MODE_LOW_LATENCY;
-import static android.content.Context.BLUETOOTH_SERVICE;
 
 class AirDropBleController {
 
@@ -129,6 +130,7 @@ class AirDropBleController {
         }
     }
 
+    @SuppressLint("MissingPermission")
     void triggerDiscoverable() {
         synchronized (mLock) {
             getAdvertiser();
@@ -149,6 +151,7 @@ class AirDropBleController {
                 mAdvertiseCallback);
     }
 
+    @SuppressLint("MissingPermission")
     void stop() {
         synchronized (mLock) {
             getAdvertiser();
@@ -160,6 +163,7 @@ class AirDropBleController {
         mAdvertiser.stopAdvertising(mAdvertiseCallback);
     }
 
+    @SuppressLint({"MissingPermission", "NewApi"})
     void registerTrigger(PendingIntent pendingIntent) {
         synchronized (mLock) {
             getScanner();

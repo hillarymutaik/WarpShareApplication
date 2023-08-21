@@ -27,7 +27,7 @@ class AirDropTypes {
 
         if (!TextUtils.isEmpty(mime)) {
             if (mime.startsWith("image/")) {
-                final String name = entity.name().toLowerCase();
+                final String name = entity.name();
                 if (name.endsWith(".jpg") || name.endsWith(".jpeg")) {
                     return "public.jpeg";
                 } else if (name.endsWith(".jp2")) {

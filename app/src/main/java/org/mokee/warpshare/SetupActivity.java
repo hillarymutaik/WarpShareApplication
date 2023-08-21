@@ -16,6 +16,15 @@
 
 package org.mokee.warpshare;
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.bluetooth.BluetoothAdapter.ACTION_REQUEST_ENABLE;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS;
+import static android.provider.Settings.ACTION_WIFI_SETTINGS;
+import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_NO_BLUETOOTH;
+import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_NO_WIFI;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,18 +39,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.mokee.warpshare.airdrop.AirDropManager;
 
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.bluetooth.BluetoothAdapter.ACTION_REQUEST_ENABLE;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS;
-import static android.provider.Settings.ACTION_WIFI_SETTINGS;
-import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_NO_BLUETOOTH;
-import static org.mokee.warpshare.airdrop.AirDropManager.STATUS_NO_WIFI;
-
 @SuppressWarnings("SwitchStatementWithTooFewBranches")
 public class SetupActivity extends AppCompatActivity {
-
-    private static final String TAG = "SetupActivity";
 
     private static final int REQUEST_PERM = 1;
 
@@ -133,6 +132,7 @@ public class SetupActivity extends AppCompatActivity {
         startActivity(new Intent(ACTION_WIFI_SETTINGS));
     }
 
+    @SuppressLint("MissingPermission")
     private void turnOnBluetooth() {
         startActivity(new Intent(ACTION_REQUEST_ENABLE));
     }

@@ -46,35 +46,41 @@ android {
         compose true
     }
 
-        configurations.configureEach {
-            resolutionStrategy {
-                force 'com.github.bumptech.glide:annotations:4.15.1'
-                force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.10'
-            }
-        }
+//        configurations.configureEach {
+//            resolutionStrategy {
+//                force 'com.github.bumptech.glide:annotations:4.15.1'
+//                force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.10'
+//            }
+//        }
+
 
 
     packagingOptions {
-//        exclude("META-INF/DEPENDENCIES")
-//        exclude("META-INF/LICENSE")
-//        exclude("META-INF/LICENSE.txt")
-//        exclude("META-INF/license.txt")
-//        exclude("META-INF/NOTICE")
-//        exclude("META-INF/NOTICE.txt")
-//        exclude("META-INF/notice.txt")
-//        exclude("META-INF/ASL2.0")
-    exclude("META-INF/*")
-    exclude 'kotlin/internal/internal.kotlin_builtins'
-    exclude 'com/bumptech/glide/annotation/Excludes.class'
-//    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude 'com/bumptech/glide/annotation/Excludes.class'
+
+        exclude("META-INF/kotlin-stdlib-common.kotlin_module")
+        exclude("META-INF/kotlin-stdlib-jdk7.kotlin_module")
+        exclude("META-INF/kotlin-stdlib-jdk8.kotlin_module")
+        exclude("META-INF/kotlin-stdlib.kotlin_module")
+        exclude("kotlin/annotation/annotation.kotlin_builtins")
+        exclude("kotlin/collections/collections.kotlin_builtins")
+        exclude("kotlin/coroutines/coroutines.kotlin_builtins")
+        exclude("kotlin/internal/internal.kotlin_builtins")
+        exclude("kotlin/kotlin.kotlin_builtins")
+        exclude("kotlin/ranges/ranges.kotlin_builtins")
+        exclude("kotlin/reflect/reflect.kotlin_builtins")
     }
 
-    composeOptions { 'kotlin/internal/internal.kotlin_builtins'
-        kotlinCompilerExtensionVersion '1.4.3'
-    }
+//    composeOptions { 'kotlin/internal/internal.kotlin_builtins'
+//        kotlinCompilerExtensionVersion '1.4.3'
+//    }
 }
 
 dependencies {
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.recyclerview:recyclerview:1.3.1'
+
 //    def multidex_version = "2.0.1"
 //    implementation "androidx.multidex:multidex:$multidex_version"
 //    implementation 'androidx.core:core-ktx:1.10.1'
@@ -83,12 +89,12 @@ dependencies {
 //    implementation 'com.google.android.material:material:1.9.0'
 //    implementation(platform("org.jetbrains.kotlin:kotlin-bom:$kotlin_version"))
 //    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
-//    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 //    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
 
 //    implementation "androidx.legacy:legacy-preference-v14:1.0.0"
-//    implementation "androidx.preference:preference-ktx:1.2.1"
-//    implementation 'com.koushikdutta.async:androidasync:3.1.0'
+    implementation "androidx.preference:preference-ktx:1.2.1"
+    implementation 'com.koushikdutta.async:androidasync:3.1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.5.2'

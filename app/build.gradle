@@ -46,24 +46,31 @@ android {
     buildFeatures {
         compose true
     }
-    packagingOptions { resources.excludes.add("META-INF/*") }
 //    packagingOptions {
-//        exclude("META-INF/DEPENDENCIES")
-//        exclude("META-INF/LICENSE")
-//        exclude("META-INF/LICENSE.txt")
-//        exclude("META-INF/license.txt")
-//        exclude("META-INF/NOTICE")
-//        exclude("META-INF/NOTICE.txt")
-//        exclude("META-INF/notice.txt")
-//        exclude("META-INF/ASL2.0")
-//        exclude("META-INF/*.kotlin_module")
+//        resources.excludes.apply {
+//            add("META-INF/LICENSE")
+//            add("META-INF/*.properties")
+//            add("META-INF/AL2.0")
+//            add("META-INF/LGPL2.1")
+//        }
+//    }
+//    packagingOptions { resources.excludes.add("META-INF/*") }
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/ASL2.0")
+        exclude("META-INF/*.kotlin_module")
 //        exclude 'kotlin/internal/internal.kotlin_builtins'
-//    }
+    }
 
-
-//    composeOptions { 'kotlin/internal/internal.kotlin_builtins'
-//        kotlinCompilerExtensionVersion '1.4.3'
-//    }
+    composeOptions { 'kotlin/internal/internal.kotlin_builtins'
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
 }
 
 dependencies {
